@@ -17,6 +17,9 @@ RUN apt-get update && apt-get install -y \
     && a2enmod rewrite
 
 # Expose port 80
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+RUN service apache2 restart
 EXPOSE 80
 
 # Define the entry point for the container
